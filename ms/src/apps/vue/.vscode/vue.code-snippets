@@ -1,0 +1,24 @@
+{
+  "new page": {
+    "prefix": "<vue-basic",
+    "body": [
+      "<template>",
+      "  <div></div>",
+      "</template>",
+      "<script lang=\"ts\" setup>",
+      "const state = reactive({",
+      "  ",
+      "})",
+      "</script>",
+      "<style lang=\"sass\" scoped>",
+      "</style>",
+      ""
+    ],
+    "description": "new component"
+  },
+  "new state": {
+    "prefix": "cstate",
+    "body": ["const state = reactive({", "  ", "})"],
+    "description": "new state"
+  }
+}

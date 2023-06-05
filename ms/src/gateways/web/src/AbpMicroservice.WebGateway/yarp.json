@@ -1,0 +1,97 @@
+{
+  "Yarp": {
+    "Routes": {
+      "product": {
+        "ClusterId": "ProductService",
+        "Match": {
+          "Path": "/api/product/{*any}"
+        }
+      },
+      "identity": {
+        "ClusterId": "IdentityService",
+        "Match": {
+          "Path": "/api/identity/{*any}"
+        }
+      },
+      "account": {
+        "ClusterId": "AccountService",
+        "Match": {
+          "Path": "/api/account/{*any}"
+        }
+      },
+      "multi-tenancy": {
+        "ClusterId": "SaasService",
+        "Match": {
+          "Path": "/api/multi-tenancy/{*any}"
+        }
+      },
+      "audit-logging": {
+        "ClusterId": "AdministrationService",
+        "Match": {
+          "Path": "/api/audit-logging/{*any}"
+        }
+      },
+      "feature-management": {
+        "ClusterId": "AdministrationService",
+        "Match": {
+          "Path": "/api/feature-management/{*any}"
+        }
+      },
+      "permission-management": {
+        "ClusterId": "AdministrationService",
+        "Match": {
+          "Path": "/api/permission-management/{*any}"
+        }
+      },
+      "setting-management": {
+        "ClusterId": "AdministrationService",
+        "Match": {
+          "Path": "/api/setting-management/{*any}"
+        }
+      },
+      "abp": {
+        "ClusterId": "AdministrationService",
+        "Match": {
+          "Path": "/api/abp/{*any}"
+        }
+      }
+    },
+    "Clusters": {
+      "AdministrationService": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://localhost:44001"
+          }
+        }
+      },
+      "IdentityService": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://localhost:44002"
+          }
+        }
+      },
+      "AccountService": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://localhost:42000"
+          }
+        }
+      },
+      "SaasService": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://localhost:44003"
+          }
+        }
+      },
+      "ProductService": {
+        "Destinations": {
+          "destination1": {
+            "Address": "https://localhost:44004"
+          }
+        }
+      }
+    }
+  }
+}

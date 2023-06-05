@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>AbpMicroservice.SaasService</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AbpMicroservice.SaasService.Domain\AbpMicroservice.SaasService.Domain.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.SaasService.Application.Contracts\AbpMicroservice.SaasService.Application.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.Ddd.Application" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="7.2.2" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,44 @@
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
+scrape_configs:
+  - job_name: 'auth-server'
+    scheme: https
+    metrics_path: 'metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+    - targets: ['host.docker.internal:42000']
+
+  - job_name: 'administration-service'
+    scheme: https
+    metrics_path: 'metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+    - targets: ['host.docker.internal:44001']
+
+  - job_name: 'identity-service'
+    scheme: https
+    metrics_path: 'metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+    - targets: ['host.docker.internal:44002']
+
+  - job_name: 'saas-service'
+    scheme: https
+    metrics_path: 'metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+    - targets: ['host.docker.internal:44003']
+
+  - job_name: 'product-service'
+    scheme: https
+    metrics_path: 'metrics'
+    tls_config:
+      insecure_skip_verify: true
+    static_configs:
+    - targets: ['host.docker.internal:44004']

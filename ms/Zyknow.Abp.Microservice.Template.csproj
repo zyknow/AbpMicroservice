@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	 <Import Project="..\common.props" />
+	
+	<PropertyGroup>
+		<PackageId>Zyknow.Abp.Microservice.Template</PackageId>
+		<Title>Abp Microservice Template</Title>
+		<Description>Abp Microservice Template</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="**\*" />
+		<Content Include="src\**\*" Exclude="src\**\bin\**;src\**\obj\**;src\etc\grafana\**;src\etc\prometheus\storage\**;src\**\Logs\**;src\**\node_modules\**;src\**\.idea\**;src\**\.tye\**;src\**\.vs\**;src\services\product\.template.config\**" />
+		<Content Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>

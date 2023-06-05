@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\common.props" />
+	<PropertyGroup>
+		<PackageId>Zyknow.Abp.Microservice.Service.Template</PackageId>
+		<Title>Abp Microservice Service Template</Title>
+		<Description>Abp Microservice Service Template</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="**\*" />
+		<Content Include="src\**\*" />
+		<Content Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="exclude.txt">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	
+	<!-- 在构建之前删除 src 目录并拷贝项目文件 -->
+	<Target Name="CopyFiles" BeforeTargets="Build">
+		<RemoveDir Directories="$(ProjectDir)\src" Condition="Exists('$(ProjectDir)\src')" />
+		<Exec Command="xcopy /E /I /Y ^
+    /EXCLUDE:$(ProjectDir)exclude.txt ^
+    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " />
+
+	</Target>
+
+</Project>

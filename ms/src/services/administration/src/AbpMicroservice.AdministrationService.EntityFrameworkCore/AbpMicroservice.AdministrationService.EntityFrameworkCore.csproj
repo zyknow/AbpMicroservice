@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>AbpMicroservice.AdministrationService</RootNamespace>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.EntityFrameworkCore\AbpMicroservice.Shared.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.AdministrationService.Domain\AbpMicroservice.AdministrationService.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="7.2.2" />
+    </ItemGroup>
+</Project>

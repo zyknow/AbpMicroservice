@@ -1,0 +1,34 @@
+{
+  "applications": {
+    "Docker-Dependencies": {
+      "type": "cli",
+      "workingDirectory": "../docker",
+      "startCommand": "./up.ps1",
+      "stopCommand": "./down.ps1"
+    },
+    "AbpMicroservice.AuthServer": {
+      "type": "dotnet-project",
+      "path": "../../apps/auth-server/src/AbpMicroservice.AuthServer/AbpMicroservice.AuthServer.csproj"
+    },
+    "AbpMicroservice.AdministrationService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/administration/src/AbpMicroservice.AdministrationService.HttpApi.Host/AbpMicroservice.AdministrationService.HttpApi.Host.csproj"
+    },
+    "AbpMicroservice.IdentityService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/identity/src/AbpMicroservice.IdentityService.HttpApi.Host/AbpMicroservice.IdentityService.HttpApi.Host.csproj"
+    },
+    "AbpMicroservice.SaasService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/saas/src/AbpMicroservice.SaasService.HttpApi.Host/AbpMicroservice.SaasService.HttpApi.Host.csproj"
+    },
+    "AbpMicroservice.ProductService.HttpApi.Host": {
+      "type": "dotnet-project",
+      "path": "../../services/product/src/AbpMicroservice.ProductService.HttpApi.Host/AbpMicroservice.ProductService.HttpApi.Host.csproj"
+    },
+    "AbpMicroservice.WebGateway": {
+      "type": "dotnet-project",
+      "path": "../../gateways/web/src/AbpMicroservice.WebGateway/AbpMicroservice.WebGateway.csproj"
+    },
+  }
+}

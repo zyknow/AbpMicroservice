@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<RootNamespace>AbpMicroservice.AdministrationService</RootNamespace>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..\..</DockerfileContext>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="7.1.1" />
+		<PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="7.1.1" />
+		<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="7.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.Localization\AbpMicroservice.Shared.Localization.csproj" />
+		<ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.Hosting.Microservices\AbpMicroservice.Shared.Hosting.Microservices.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AbpMicroservice.AdministrationService.Application\AbpMicroservice.AdministrationService.Application.csproj" />
+		<ProjectReference Include="..\AbpMicroservice.AdministrationService.EntityFrameworkCore\AbpMicroservice.AdministrationService.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\AbpMicroservice.AdministrationService.HttpApi\AbpMicroservice.AdministrationService.HttpApi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Logs\**" />
+		<Content Remove="Logs\**" />
+		<EmbeddedResource Remove="Logs\**" />
+		<None Remove="Logs\**" />
+	</ItemGroup>
+
+</Project>

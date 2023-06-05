@@ -1,0 +1,6 @@
+obj
+bin
+.idea
+.vs
+Logs
+node_modules

@@ -1,0 +1,29 @@
+// app global css in SCSS form
+.main-layout {
+  @apply text-gray-700 bg-[#eff4f9] dark: text-gray-200 dark:bg-black;
+}
+
+// fixed qTable last column
+.fixed-qtable-last-column {
+  td:last-child {
+    @apply bg-[#d9d9d9] dark: bg-gray-800;
+  }
+
+  th:last-child {
+    position: sticky;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+// fixed qTable header
+.fixed-qtable-header {
+  thead tr th {
+    position: sticky;
+    z-index: 1;
+  }
+
+  thead tr:first-child th {
+    top: 0;
+  }
+}

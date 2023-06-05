@@ -1,0 +1,58 @@
+name: AbpMicroservice
+services:
+  - name: blazor-server
+    project: apps/blazor/src/AbpMicroservice.Blazor/AbpMicroservice.Blazor.csproj
+    bindings:
+      - protocol: https
+        port: 40000
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: auth-server
+    project: apps/auth-server/src/AbpMicroservice.AuthServer/AbpMicroservice.AuthServer.csproj
+    bindings:
+      - protocol: https
+        port: 42000
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: web-gateway
+    project: gateways/web/src/AbpMicroservice.WebGateway/AbpMicroservice.WebGateway.csproj
+    bindings:
+      - protocol: https
+        port: 43001
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: administration-service
+    project: services/administration/src/AbpMicroservice.AdministrationService.HttpApi.Host/AbpMicroservice.AdministrationService.HttpApi.Host.csproj
+    bindings:
+      - protocol: https
+        port: 44001
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: identity-service
+    project: services/identity/src/AbpMicroservice.IdentityService.HttpApi.Host/AbpMicroservice.IdentityService.HttpApi.Host.csproj
+    bindings:
+      - protocol: https
+        port: 44002
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: saas-service
+    project: services/saas/src/AbpMicroservice.SaasService.HttpApi.Host/AbpMicroservice.SaasService.HttpApi.Host.csproj
+    bindings:
+      - protocol: https
+        port: 44003
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: product-service
+    project: services/product/src/AbpMicroservice.ProductService.HttpApi.Host/AbpMicroservice.ProductService.HttpApi.Host.csproj
+    bindings:
+      - protocol: https
+        port: 44004
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517

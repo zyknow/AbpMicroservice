@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>AbpMicroservice.AdministrationService</RootNamespace>
+        <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="7.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Localization\AdministrationService\*.json" />
+        <Content Remove="Localization\AdministrationService\*.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.Definition\AbpMicroservice.Shared.Definition.csproj" />
+    </ItemGroup>
+
+</Project>

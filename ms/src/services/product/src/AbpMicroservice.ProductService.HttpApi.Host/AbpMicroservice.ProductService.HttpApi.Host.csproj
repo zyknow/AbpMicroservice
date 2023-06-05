@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+
+        <RootNamespace>AbpMicroservice.ProductService</RootNamespace>
+        <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.Hosting.Microservices\AbpMicroservice.Shared.Hosting.Microservices.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.ProductService.Application\AbpMicroservice.ProductService.Application.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.ProductService.EntityFrameworkCore\AbpMicroservice.ProductService.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.ProductService.HttpApi\AbpMicroservice.ProductService.HttpApi.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Logs\**" />
+        <Content Remove="Logs\**" />
+        <EmbeddedResource Remove="Logs\**" />
+        <None Remove="Logs\**" />
+    </ItemGroup>
+
+</Project>

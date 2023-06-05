@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management-alpine
+    networks:
+      - abpmic-network
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    networks:
+      - abpmic-network
+    ports:
+      - "6379:6379"
+      
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    volumes:
+      - sqldata:/var/lib/postgresql/data
+    networks:
+      - abpmic-network
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USERS_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      
+volumes:
+  esdata:
+  sqldata:
+networks:
+  abpmic-network:
+    external: true

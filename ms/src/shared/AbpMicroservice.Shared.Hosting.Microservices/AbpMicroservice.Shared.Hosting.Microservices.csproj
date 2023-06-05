@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.props" />
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AbpMicroservice.Shared.Hosting.AspNetCore\AbpMicroservice.Shared.Hosting.AspNetCore.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="7.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
+        <PackageReference Include="DistributedLock.Redis" Version="1.0.2" />
+        <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.BackgroundJobs.RabbitMQ" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.DistributedLocking" Version="7.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\services\administration\src\AbpMicroservice.AdministrationService.EntityFrameworkCore\AbpMicroservice.AdministrationService.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\services\saas\src\AbpMicroservice.SaasService.EntityFrameworkCore\AbpMicroservice.SaasService.EntityFrameworkCore.csproj" />
+    </ItemGroup>
+</Project>

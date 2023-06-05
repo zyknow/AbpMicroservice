@@ -1,0 +1,19 @@
+<Project>
+	<PropertyGroup>
+		<PackageType>Template</PackageType>
+		<Version>1.7.2.1</Version>
+		<TargetFramework>net7.0</TargetFramework>
+		<PackageTags>abp;microservice;template;tye</PackageTags>
+		<Authors>Zyknow</Authors>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/zyknow/AbpMicroservice</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/zyknow/AbpMicroservice</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageOutputPath>$(SolutionDir)\.packages\</PackageOutputPath>
+	</PropertyGroup>
+</Project>

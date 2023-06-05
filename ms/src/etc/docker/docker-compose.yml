@@ -1,0 +1,145 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management-alpine
+    networks:
+      - abpmic-network
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    networks:
+      - abpmic-network
+    ports:
+      - "6379:6379"
+      
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+      - ../elasticsearch/set_passwords.sh:/usr/share/elasticsearch/set_passwords.sh
+#    command: bash -c "bin/elasticsearch & bash set_passwords.sh"
+    networks:
+      - abpmic-network
+    environment:
+      - xpack.watcher.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:8.7.0
+    depends_on:
+      - elasticsearch
+    networks:
+      - abpmic-network
+    environment:
+      - ELASTICSEARCH_URL=http://host.docker.internal:9200
+      - ELASTICSEARCH_USERNAME=kibana
+      - ELASTICSEARCH_PASSWORD="123456"
+    ports: 
+      - "5601:5601"
+      
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    volumes:
+      - sqldata:/var/lib/postgresql/data
+    networks:
+      - abpmic-network
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USERS_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    volumes:
+      - ../grafana/storage:/var/lib/grafana
+    networks:
+      - abpmic-network
+    ports:
+      - "3000:3000"
+ 
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    volumes:
+      - ../prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../prometheus/storage:/prometheus
+    networks:
+      - abpmic-network
+    ports:
+      - "9090:9090"
+      
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one:latest
+    networks:
+      - abpmic-network
+    ports:
+      - "16686:16686"
+      - "6831:6831/udp"
+      
+  apollo-quick-start:
+    image: nobodyiam/apollo-quick-start
+    container_name: apollo-quick-start
+    depends_on:
+      apollo-db:
+        condition: service_healthy
+    links:
+      - apollo-db
+    ports:
+      - "18080:8080"
+      - "18070:8070"
+      - "18090:8090"
+    #environment:
+      #JAVA_OPTS: '-Xms100m -Xmx1000m -Xmn100m -Xss256k -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=250m'
+      #APOLLO_CONFIG_DB_USERNAME: 'root'
+      #APOLLO_CONFIG_DB_PASSWORD: 'apollo'
+      #APOLLO_PORTAL_DB_USERNAME: 'root'
+      #APOLLO_PORTAL_DB_PASSWORD: 'apollo'
+
+  apollo-db:
+    image: mysql:8.0
+    container_name: apollo-db
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 1s
+      retries: 10
+    depends_on:
+      - apollo-dbdata
+    volumes:
+      - ../apollo/sql:/docker-entrypoint-initdb.d
+    volumes_from:
+      - apollo-dbdata
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      #MYSQL_ROOT_PASSWORD: 'apollo'
+    ports:
+      - "13306:3306"
+      
+  apollo-dbdata:
+    image: alpine:latest
+    container_name: apollo-dbdata
+    volumes:
+      - /var/lib/mysql
+      
+volumes:
+  esdata:
+  sqldata:
+networks:
+  abpmic-network:
+    external: true

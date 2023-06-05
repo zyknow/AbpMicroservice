@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\common.props" />
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="7.2.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AbpMicroservice.Shared.ConfigurationCenter\AbpMicroservice.Shared.ConfigurationCenter.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.Shared.Definition\AbpMicroservice.Shared.Definition.csproj" />
+    </ItemGroup>
+</Project>

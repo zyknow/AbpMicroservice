@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+
+        <RootNamespace>AbpMicroservice.AdministrationService</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AbpMicroservice.AdministrationService.Application.Contracts\AbpMicroservice.AdministrationService.Application.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SharpAbp.Abp.AuditLogging.HttpApi" Version="2.7.2" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" Version="7.2.2" />
+    </ItemGroup>
+
+</Project>

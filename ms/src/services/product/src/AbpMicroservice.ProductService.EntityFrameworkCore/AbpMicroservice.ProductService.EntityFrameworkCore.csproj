@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+
+        <RootNamespace>AbpMicroservice.ProductService</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.EntityFrameworkCore\AbpMicroservice.Shared.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\AbpMicroservice.ProductService.Domain\AbpMicroservice.ProductService.Domain.csproj" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.2.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
+    </ItemGroup>
+</Project>

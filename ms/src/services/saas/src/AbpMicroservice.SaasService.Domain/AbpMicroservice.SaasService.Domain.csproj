@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+
+        <RootNamespace>AbpMicroservice.SaasService</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Ddd.Domain" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="7.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AbpMicroservice.SaasService.Domain.Shared\AbpMicroservice.SaasService.Domain.Shared.csproj" />
+    </ItemGroup>
+
+
+</Project>

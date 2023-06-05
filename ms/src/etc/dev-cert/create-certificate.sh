@@ -1,0 +1,1 @@
+dotnet dev-certs https -v -ep localhost.pfx -p 3a0aeff5-4f70-6e81-be8e-c7309b6ed517 -t
