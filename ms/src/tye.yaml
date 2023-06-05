@@ -16,6 +16,14 @@ services:
     env:
       - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
       - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
+  - name: internal-gateway
+    project: gateways/internal/src/AbpMicroservice.InternalGateway/AbpMicroservice.InternalGateway.csproj
+    bindings:
+      - protocol: https
+        port: 43000
+    env:
+      - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
+      - Kestrel__Certificates__Default__Password=3a0aeff5-4f70-6e81-be8e-c7309b6ed517
   - name: web-gateway
     project: gateways/web/src/AbpMicroservice.WebGateway/AbpMicroservice.WebGateway.csproj
     bindings:

@@ -24,7 +24,7 @@ public class AbpMicroserviceInternalGatewayModule : AbpModule
             context: context,
             authority: configuration["AuthServer:Authority"]!,
             scopes: AppServiceConsts.GetAllServiceNameDescDic(),
-            apiTitle: "Web Gateway API"
+            apiTitle: "Internal Gateway API"
         );
         //ReverseProxy
         context.Services.AddCors(options =>
