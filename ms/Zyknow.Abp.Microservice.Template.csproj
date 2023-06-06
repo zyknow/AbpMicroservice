@@ -1,12 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	 <Import Project="..\common.props" />
-	
+	<Import Project="..\common.props" />
+
 	<PropertyGroup>
 		<PackageId>Zyknow.Abp.Microservice.Template</PackageId>
 		<Title>Abp Microservice Template</Title>
 		<Description>Abp Microservice Template</Description>
 	</PropertyGroup>
+
+	<Target Name="SyncVersionAndMakeChangelog" BeforeTargets="Build">
+		<Exec command="cd .. &amp;&amp; yarn"></Exec>
+		<Exec command="cd .. &amp;&amp; node sync-package-version.js"></Exec>
+		<Exec command="cd .. &amp;&amp; yarn changelog"></Exec>
+	</Target>
 
 	<ItemGroup>
 		<Compile Remove="**\*" />

@@ -7,6 +7,13 @@
 		<Description>Abp Microservice Service Template</Description>
 	</PropertyGroup>
 
+	<Target Name="SyncVersionAndMakeChangelog" BeforeTargets="Build">
+		<Exec command="cd .. &amp;&amp; yarn"></Exec>
+		<Exec command="cd .. &amp;&amp; node sync-package-version.js"></Exec>
+		<Exec command="cd .. &amp;&amp; yarn changelog"></Exec>
+	</Target>
+	
+	
 	<ItemGroup>
 		<Compile Remove="**\*" />
 		<Content Include="src\**\*" />
@@ -18,13 +25,11 @@
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
-	
+
 	<!-- 在构建之前删除 src 目录并拷贝项目文件 -->
 	<Target Name="CopyFiles" BeforeTargets="Build">
 		<RemoveDir Directories="$(ProjectDir)\src" Condition="Exists('$(ProjectDir)\src')" />
-		<Exec Command="xcopy /E /I /Y ^
-    /EXCLUDE:$(ProjectDir)exclude.txt ^
-    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " />
+		<Exec Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)exclude.txt ^&#xD;&#xA;    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " />
 
 	</Target>
 
