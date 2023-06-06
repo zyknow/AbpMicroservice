@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   rabbitmq:
@@ -17,7 +17,7 @@ services:
       - abpmic-network
     ports:
       - "6379:6379"
-      
+
   postgres:
     container_name: postgres
     image: postgres:latest
@@ -30,7 +30,22 @@ services:
     environment:
       POSTGRES_USERS_USER: postgres
       POSTGRES_PASSWORD: postgres
-      
+
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    networks:
+      - abpmic-network
+    ports:
+      - "9000:9000"
+      - "9001:9090"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin1q2w3E*
+    volumes:
+      - ../minio:/data
+    command: server /data --console-address ":9090"
+
 volumes:
   esdata:
   sqldata:

@@ -378,3 +378,4 @@ tempkey.rsa
 tempkey.jwk
 
 !/etc/dev-cert/localhost.pfx
+etc/minio/*
