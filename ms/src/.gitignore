@@ -379,3 +379,4 @@ tempkey.jwk
 
 !/etc/dev-cert/localhost.pfx
 etc/minio/*
+**/appsettings.secrets.json
