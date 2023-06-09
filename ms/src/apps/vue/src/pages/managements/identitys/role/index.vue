@@ -60,6 +60,6 @@ const {
   showCreateDialog,
   deleteAction,
   localizationModuleName
-} = await createRoleCrud({ tableConfigSavingKey: 'IdentityRolerManagement' })
+} = await createRoleCrud({ tableConfigSavingKey: 'IdentityRoleManagement' })
 </script>
 <style lang="scss"></style>
