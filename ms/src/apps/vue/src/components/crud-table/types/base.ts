@@ -22,8 +22,8 @@ export abstract class BaseAction<TInput, TDto = any, TOptions = any> implements 
   options: TOptions
   enabledConfirmation = false
 
-  preInvokes: ((input: CrudInvokeContext<TInput, TDto>) => void)[] = []
-  postInvokes: ((input: CrudInvokeContext<TInput, TDto>) => void)[] = []
+  preInvokes: ((context: CrudInvokeContext<TInput, TDto>) => void)[] = []
+  postInvokes: ((context: CrudInvokeContext<TInput, TDto>) => void)[] = []
   method: (...params) => Promise<AxiosResultType<InternalAxiosResultType<TDto>> | undefined>
 
   constructor(
@@ -55,7 +55,7 @@ export abstract class BaseAction<TInput, TDto = any, TOptions = any> implements 
       input: this.input,
       extends: {},
       setResultErrorMessages: (message: string) => {
-        if (context?.result) {
+        if (!context?.result) {
           context.result = {
             error: {
               code: 'preInvokeError',
@@ -74,7 +74,13 @@ export abstract class BaseAction<TInput, TDto = any, TOptions = any> implements 
 
     for (const preInvoke of this.preInvokes) {
       await preInvoke(context)
-      if (!context.next) return context.result
+
+      if (!context.next) {
+        if (!this.postInvokes?.length) {
+          this.defaultRequestErrorHandler(context.result)
+        }
+        return context.result
+      }
     }
 
     if (!context?.next) return undefined
@@ -87,7 +93,6 @@ export abstract class BaseAction<TInput, TDto = any, TOptions = any> implements 
       await postInvoke(context)
       if (!context.next) return context.result
     }
-
     if (!this.postInvokes?.length) {
       this.defaultRequestErrorHandler(context.result)
     }
