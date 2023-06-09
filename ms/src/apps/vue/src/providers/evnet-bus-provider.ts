@@ -4,11 +4,11 @@ import { EventBus } from 'quasar'
 const instance = new EventBus()
 const createEventBus = <CallBackType>(key: string) => {
   return {
-    on(callback: (data: CallBackType) => any, ctx?: any) {
-      return instance.on(key, callback, ctx)
+    on(callback: (data: CallBackType) => any) {
+      return instance.on(key, callback)
     },
-    once(callback: (data: CallBackType) => any, ctx?: any) {
-      return instance.once(key, callback, ctx)
+    once(callback: (data: CallBackType) => any) {
+      return instance.once(key, callback)
     },
     emit(args: CallBackType) {
       return instance.emit(key, args)
