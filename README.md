@@ -25,7 +25,7 @@ to using dotnet new to create microservice project and microservice service proj
 - [x] `OpenTelemetry` `Jaeger` Distributed tracing
 - [x] `Apollo` Configuration Center
 - [x] `Yarp` Gateway
-- [x] `RabbitMQ` Blob EventBus
+- [x] `RabbitMQ` Message Queue 
 - [x] `Minio` Distributed Storage
 - [x] `Tye` Support
 - [x] `Blazor Server` Web App
