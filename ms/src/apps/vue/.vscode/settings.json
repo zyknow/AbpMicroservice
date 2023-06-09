@@ -105,5 +105,6 @@
   "vue.updateImportsOnFileMove.enabled": true,
   "vue.inlayHints.inlineHandlerLeading": false,
   "compile-hero.disable-compile-files-on-did-save-code": true,
-  "cSpell.language": "zh,en,en-US,en-GB,lorem"
+  "cSpell.language": "zh,en,en-US,en-GB,lorem",
+  "chat.experimental.quickQuestion.enable": true
 }
