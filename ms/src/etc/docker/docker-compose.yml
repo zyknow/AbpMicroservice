@@ -144,12 +144,13 @@ services:
       - abpmic-network
     ports:
       - "9000:9000"
+      - "9001:9090"
     environment:
       MINIO_ROOT_USER: "admin"
       MINIO_ROOT_PASSWORD: "admin1q2w3E*"
     volumes:
       - ../minio/data:/data
-    command: server /data
+    command: server /data --console-address ":9090"
     
 volumes:
   esdata:
