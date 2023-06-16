@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-
+    <Import Project="..\..\..\..\common.props" />
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     
@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\AbpMicroservice.AdministrationService.EntityFrameworkCore\AbpMicroservice.AdministrationService.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\AbpMicroservice.AdministrationService.TestBase\AbpMicroservice.AdministrationService.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="7.1.1" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="$(ABPPackageVersion)" />
   </ItemGroup>
 
   <ItemGroup>

@@ -13,9 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="7.2.2" />
-        <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="7.2.2" />
-        <PackageReference Include="Volo.Abp.Authorization" Version="7.2.2" />
+        <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Authorization" Version="$(ABPPackageVersion)" />
     </ItemGroup>
 
 </Project>
