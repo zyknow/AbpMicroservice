@@ -20,15 +20,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Volo.Abp.DistributedLocking" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.Client" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.OpenIdConnect" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.Autofac" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.Identity.Blazor.Server" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" Version="7.2.2" />
-		<PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" Version="7.2.2" />
+		<PackageReference Include="Volo.Abp.DistributedLocking" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.Client" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.OpenIdConnect" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.Autofac" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.Identity.Blazor.Server" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" Version="$(ABPPackageVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" Version="$(ABPPackageVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>
