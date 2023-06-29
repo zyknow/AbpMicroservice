@@ -3,7 +3,7 @@
     <!-- quasar nav -->
     <div v-for="(router, index) in routers" :key="index">
       <div v-if="!router.meta?.hidden">
-        <div v-if="!router.children" class="rounded-lg overflow-hidden">
+        <div v-if="!router.children">
           <q-expansion-item
             :header-inset-level="level"
             expand-icon="1"
