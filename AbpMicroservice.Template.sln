@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{3609CC9C-A
 		package.json = package.json
 		.releaserc.json = .releaserc.json
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms", "ms", "{20A5E8C8-5EC9-4ABA-AD11-44B6432B87A7}"

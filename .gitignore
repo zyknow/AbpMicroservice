@@ -376,5 +376,6 @@ MigrationBackup/
 # IdentityServer temp files
 tempkey.rsa
 tempkey.jwk
-/ms-s/src
+/ms-s/src/*
+!/ms-s/src/.template.config/
 ms/src/apps/vue/types/auto-imports/*
