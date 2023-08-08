@@ -1,7 +1,7 @@
 <Project>
 	<PropertyGroup>
 		<PackageType>Template</PackageType>
-		<Version>1.0.0-preview.2</Version>
+		<Version>1.0.0-preview.3</Version>
 		<TargetFramework>net7.0</TargetFramework>
 		<PackageTags>abp;microservice;template;tye</PackageTags>
 		<Authors>Zyknow</Authors>
