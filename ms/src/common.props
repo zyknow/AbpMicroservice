@@ -6,7 +6,7 @@
         <AbpProjectType>ms</AbpProjectType>
 		<ImplicitUsings>enable</ImplicitUsings>
         <!--        <Nullable>true</Nullable>-->
-        <ABPPackageVersion>7.3.1</ABPPackageVersion>
+        <ABPPackageVersion>7.3.2</ABPPackageVersion>
     </PropertyGroup>
 
     <Target Name="NoWarnOnRazorViewImportedTypeConflicts" BeforeTargets="RazorCoreCompile">
