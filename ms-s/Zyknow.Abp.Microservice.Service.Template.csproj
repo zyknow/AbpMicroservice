@@ -21,9 +21,11 @@
 
 	<!-- 在构建之前删除 src 目录并拷贝项目文件 -->
 	<Target Name="CopyFiles" BeforeTargets="Build">
-		<RemoveDir Directories="$(ProjectDir)\src" Condition="Exists('$(ProjectDir)\src')" />
-		<Exec Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)exclude.txt ^&#xD;&#xA;    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " />
+		<!-- 如果是 Windows -->
+		<Exec Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)exclude.txt ^&#xD;&#xA;    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " Condition="'$(OS)' == 'Windows_NT'" />
 
+		<!-- 如果是 Linux 或其他 Unix-like 系统 -->
+		<Exec Command="cp -r $(SolutionDir)ms/src/services/product/* $(ProjectDir)src/" Condition="'$(OS)' != 'Windows_NT'" />
 	</Target>
 
 </Project>
