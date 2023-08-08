@@ -25,7 +25,8 @@
 		<Exec Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)exclude.txt ^&#xD;&#xA;    $(SolutionDir)ms\src\services\product\* $(ProjectDir)\src\ " Condition="'$(OS)' == 'Windows_NT'" />
 
 		<!-- 如果是 Linux 或其他 Unix-like 系统 -->
-		<Exec Command="cp -r $(SolutionDir)ms/src/services/product/* $(ProjectDir)src/" Condition="'$(OS)' != 'Windows_NT'" />
+		<Exec Command="rsync -av --exclude-from='$(ProjectDir)exclude.txt' $(SolutionDir)ms/src/services/product/ $(ProjectDir)src/
+" Condition="'$(OS)' != 'Windows_NT'" />
 	</Target>
 
 </Project>
