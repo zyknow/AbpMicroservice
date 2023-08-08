@@ -1,3 +1,15 @@
+# [1.0.0-preview.2](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.1...v1.0.0-preview.2) (2023-08-08)
+
+
+### Bug Fixes
+
+* add ms-s template.json ([562a8fc](https://github.com/zyknow/AbpMicroservice/commit/562a8fc4ecd66aa0e090827d358ef757c131e834))
+
+
+### Features
+
+* update ABPPackageVersion to 7.3.1 ([b3b818e](https://github.com/zyknow/AbpMicroservice/commit/b3b818ec145158300345a1828d4cbb8697e0e10a))
+
 # 1.0.0-preview.1 (2023-08-08)
 
 
