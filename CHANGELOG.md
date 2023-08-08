@@ -1,3 +1,15 @@
+# [1.0.0-preview.4](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.3...v1.0.0-preview.4) (2023-08-08)
+
+
+### Bug Fixes
+
+* create service template not files ([c8b7350](https://github.com/zyknow/AbpMicroservice/commit/c8b7350f52778a997288af9bbb5a8b8aa36af865))
+
+
+### Features
+
+* update ABPPackageVersion to 7.3.2 ([0d01ace](https://github.com/zyknow/AbpMicroservice/commit/0d01ace1e936096dbbe98f3340bf40dc316c0084))
+
 # [1.0.0-preview.3](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.2...v1.0.0-preview.3) (2023-08-08)
 
 
