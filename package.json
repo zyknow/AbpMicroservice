@@ -1,13 +1,23 @@
 {
-  "version": "0.0.1-preview-01",
-  "scripts": {
-    "changelog": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0 -n ./changelog-option.js"
+  "name": "abp.microservice",
+  "version": "1.2.2",
+  "description": "[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://mit-license.org/)\r [![GitHub Stars](https://img.shields.io/github/stars/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/stargazers)\r [![GitHub Issues](https://img.shields.io/github/issues/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/issues)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zyknow/AbpMicroservice.git"
   },
+  "author": "zyknow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zyknow/AbpMicroservice/issues"
+  },
+  "homepage": "https://github.com/zyknow/AbpMicroservice#readme",
   "dependencies": {
-    "compare-func": "^2.0.0",
-    "conventional-changelog": "^3.1.25",
-    "conventional-changelog-cli": "^2.2.2",
-    "conventional-changelog-custom-config": "^0.3.1",
-    "xml2js": "^0.6.0"
+    "semantic-release": "^21.0.7"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1"
   }
 }

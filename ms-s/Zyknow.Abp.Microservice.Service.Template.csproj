@@ -6,13 +6,6 @@
 		<Title>Abp Microservice Service Template</Title>
 		<Description>Abp Microservice Service Template</Description>
 	</PropertyGroup>
-
-	<Target Name="SyncVersionAndMakeChangelog" BeforeTargets="Build">
-		<Exec command="cd .. &amp;&amp; yarn"></Exec>
-		<Exec command="cd .. &amp;&amp; node sync-package-version.js"></Exec>
-		<Exec command="cd .. &amp;&amp; yarn changelog"></Exec>
-	</Target>
-	
 	
 	<ItemGroup>
 		<Compile Remove="**\*" />
