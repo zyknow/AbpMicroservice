@@ -379,3 +379,6 @@ tempkey.jwk
 /ms-s/src/*
 !/ms-s/src/.template.config/
 ms/src/apps/vue/types/auto-imports/*
+
+
+.packages

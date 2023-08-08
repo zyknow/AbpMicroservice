@@ -8,7 +8,7 @@ IF EXIST ".packages" (
 
 
 ECHO start build sln...
-dotnet build AbpMicroservice.Template.sln -c Debug
+dotnet build AbpMicroservice.Template.sln -c Release
 
 ECHO install nupkg...
 dotnet new install ".packages\*.nupkg"
