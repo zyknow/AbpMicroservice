@@ -1,0 +1,13 @@
+# 1.0.0-preview.1 (2023-08-08)
+
+
+### Bug Fixes
+
+* docker config ([ec6aa93](https://github.com/zyknow/AbpMicroservice/commit/ec6aa93b3ba40edb46b984ad8b89a76f0cf7f369))
+* event bus provider error ([34b1430](https://github.com/zyknow/AbpMicroservice/commit/34b1430c319a2f0994dc6602006b6d974be62577))
+
+
+### Features
+
+* upgrade abp to v7.3.0 ([df535a6](https://github.com/zyknow/AbpMicroservice/commit/df535a67332bbd50caf38333d21b744ef3bd841a))
+* use minio on blob storage ([289d74b](https://github.com/zyknow/AbpMicroservice/commit/289d74b8343677e1ff183e3adcff746af4a4dcf2))
