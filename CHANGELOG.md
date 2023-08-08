@@ -1,3 +1,10 @@
+# [1.0.0-preview.3](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.2...v1.0.0-preview.3) (2023-08-08)
+
+
+### Bug Fixes
+
+* shortName fix to zabp-ms-s ([be8bb42](https://github.com/zyknow/AbpMicroservice/commit/be8bb42c9b8130c350bcf199ea07000ab9f96db8))
+
 # [1.0.0-preview.2](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.1...v1.0.0-preview.2) (2023-08-08)
 
 

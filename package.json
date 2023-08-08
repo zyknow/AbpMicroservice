@@ -1,6 +1,6 @@
 {
   "name": "abp.microservice",
-  "version": "1.0.0-preview.2",
+  "version": "1.0.0-preview.3",
   "description": "[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://mit-license.org/)\r [![GitHub Stars](https://img.shields.io/github/stars/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/stargazers)\r [![GitHub Issues](https://img.shields.io/github/issues/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/issues)",
   "main": "index.js",
   "repository": {
