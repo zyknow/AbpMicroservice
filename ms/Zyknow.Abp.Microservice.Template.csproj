@@ -15,24 +15,4 @@
         <Content Include="src-s\**\*" />
         <Content Include="..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
-
-    <!-- 在构建之前删除 src 目录并拷贝项目文件 -->
-    <Target Name="CopyFiles" BeforeTargets="Build">
-        <!-- 如果是 Windows -->
-        <Exec Command="rmdir /s /q $(ProjectDir)src-s" Condition="'$(OS)' == 'Windows_NT'" />
-        <Exec
-            Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)src\services\product\exclude.txt ^&#xD;&#xA;    $(ProjectDir)src\services\product\* $(ProjectDir)\src-s\ "
-            Condition="'$(OS)' == 'Windows_NT'" />
-
-        <!-- 如果是 Linux 或其他 Unix-like 系统 -->
-        <Exec Command="rm -rf $(ProjectDir)src-s/" Condition="'$(OS)' != 'Windows_NT'" />
-        <Exec
-            Command="cp -r $(ProjectDir)src/services/product  $(ProjectDir)src-s"
-            Condition="'$(OS)' != 'Windows_NT'" />
-
-            <Exec
-            Command="cd $(ProjectDir)/src-s &amp;&amp; rm -rf obj bin .idea .vs Logs node_modules exclude.txt"
-            Condition="'$(OS)' != 'Windows_NT'" />
-
-    </Target>
 </Project>
