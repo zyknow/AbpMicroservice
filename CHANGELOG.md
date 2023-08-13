@@ -1,3 +1,10 @@
+# [1.0.0-preview.6](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.5...v1.0.0-preview.6) (2023-08-13)
+
+
+### Bug Fixes
+
+* template not include service template ([cadaead](https://github.com/zyknow/AbpMicroservice/commit/cadaead929114e9fd3459e271eb42664e5c5505c))
+
 # [1.0.0-preview.5](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.4...v1.0.0-preview.5) (2023-08-13)
 
 
