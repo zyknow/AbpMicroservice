@@ -1,16 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<Import Project="..\common.props" />
+    <Import Project="..\common.props"/>
 
-	<PropertyGroup>
-		<PackageId>Zyknow.Abp.Microservice.Template</PackageId>
-		<Title>Abp Microservice Template</Title>
-		<Description>Abp Microservice Template</Description>
-	</PropertyGroup>
+    <PropertyGroup>
+        <PackageId>Zyknow.Abp.Microservice.Template</PackageId>
+        <Title>Abp Microservice Template</Title>
+        <Description>Abp Microservice Template</Description>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Remove="**\*" />
-		<Content Include="src\**\*" Exclude="src\**\bin\**;src\**\obj\**;src\etc\grafana\**;src\etc\prometheus\storage\**;src\**\Logs\**;src\**\node_modules\**;src\**\.idea\**;src\**\.tye\**;src\**\.vs\**;src\services\product\.template.config\**" />
-		<Content Include="..\README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
+    <ItemGroup>
+        <Compile Remove="**\*"/>
+        <Content Include="src\**\*" Exclude="src\**\bin\**;src\**\obj\**;src\etc\grafana\**;src\etc\prometheus\storage\**;src\**\Logs\**;src\**\node_modules\**;src\**\.idea\**;src\**\.tye\**;src\**\.vs\**;src\services\product\.template.config\**"/>
+        <Content Include="src-s\**\*" />
+        <Content Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <!-- 在构建之前删除 src 目录并拷贝项目文件 -->
+    <Target Name="CopyFiles" BeforeTargets="Build">
+        <!-- 如果是 Windows -->
+        <Exec Command="rmdir /s /q $(ProjectDir)src-s" Condition="'$(OS)' == 'Windows_NT'"/>
+        <Exec Command="xcopy /E /I /Y ^&#xD;&#xA;    /EXCLUDE:$(ProjectDir)src\services\product\exclude.txt ^&#xD;&#xA;    $(ProjectDir)src\services\product\* $(ProjectDir)\src-s\ " Condition="'$(OS)' == 'Windows_NT'"/>
+<!--        <Exec Command="del $(ProjectDir)src-s\exclude.txt" Condition="'$(OS)' == 'Windows_NT'"/>-->
+
+
+        <!-- 如果是 Linux 或其他 Unix-like 系统 -->
+        <Exec Command="rm -rf $(ProjectDir)\src-s" Condition="'$(OS)' != 'Windows_NT'"/>
+        <Exec Command="rsync -av --exclude-from='$(ProjectDir)exclude.txt' $(ProjectDir)src/services/product/ $(ProjectDir)src-s/
+" Condition="'$(OS)' != 'Windows_NT'"/>
+<!--        <Exec Command="rm -rf $(ProjectDir)/src-s/exclude.txt" Condition="'$(OS)' != 'Windows_NT'"/>-->
+        
+    </Target>
 </Project>

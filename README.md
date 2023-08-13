@@ -43,11 +43,7 @@ to using dotnet new to create microservice project and microservice service proj
   ```shell
   dotnet new install Zyknow.Abp.Microservice.Template
   ```
-- install microservice service template on dotnet
-  ```shell
-  dotnet new install Zyknow.Abp.Microservice.Service.Template
-  ```
-
+  
 #### Create Microservice Project
 
 ```shell

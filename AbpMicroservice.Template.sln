@@ -5,8 +5,6 @@ VisualStudioVersion = 17.6.33606.364
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zyknow.Abp.Microservice.Template", "ms\Zyknow.Abp.Microservice.Template.csproj", "{C35F623A-2E88-4E7A-852E-2EF8CFAC11DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zyknow.Abp.Microservice.Service.Template", "ms-s\Zyknow.Abp.Microservice.Service.Template.csproj", "{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{3609CC9C-AF05-4C2E-9475-1F4C74A1AB8A}"
 	ProjectSection(SolutionItems) = preProject
 		common.props = common.props
@@ -16,10 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{3609CC9C-A
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		.gitignore = .gitignore
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms", "ms", "{20A5E8C8-5EC9-4ABA-AD11-44B6432B87A7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ms-s", "ms-s", "{6527EBDB-F12E-4C3C-93D1-E9A029751389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,17 +25,11 @@ Global
 		{C35F623A-2E88-4E7A-852E-2EF8CFAC11DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C35F623A-2E88-4E7A-852E-2EF8CFAC11DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C35F623A-2E88-4E7A-852E-2EF8CFAC11DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C35F623A-2E88-4E7A-852E-2EF8CFAC11DE} = {20A5E8C8-5EC9-4ABA-AD11-44B6432B87A7}
-		{B9A73ED1-AE68-4D2F-9FB0-1392D8FDCDAB} = {6527EBDB-F12E-4C3C-93D1-E9A029751389}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AD42C7F-072A-4EFF-9491-8B6BDEE9220C}
