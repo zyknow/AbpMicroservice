@@ -33,6 +33,7 @@ jobs:
         id: get_version
         run: echo "::set-output name=version::$(jq -r ".version" package.json)"
       
+      
     outputs:
       new_version: ${{ steps.get_version.outputs.version }}
   
