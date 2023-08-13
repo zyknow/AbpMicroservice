@@ -31,7 +31,7 @@
             Condition="'$(OS)' != 'Windows_NT'" />
 
             <Exec
-            Command="cd $(ProjectDir)/src-s &amp;&amp; rm -rf obj bin .idea .vs Logs node_modules"
+            Command="cd $(ProjectDir)/src-s &amp;&amp; rm -rf obj bin .idea .vs Logs node_modules exclude.txt"
             Condition="'$(OS)' != 'Windows_NT'" />
 
     </Target>

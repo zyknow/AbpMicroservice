@@ -91,7 +91,9 @@ jobs:
           fi
 
       - name: Build And Pack
-        run: dotnet build AbpMicroservice.Template.sln --configuration Release --no-restore
+        run: |
+          dotnet build AbpMicroservice.Template.sln --configuration Release --no-restore
+          dotnet build AbpMicroservice.Template.sln --configuration Release --no-restore
 
       - name: Push to NuGet
         run: |
