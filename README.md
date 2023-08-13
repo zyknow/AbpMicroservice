@@ -6,7 +6,7 @@
 
 ## Introduction
 
-This project is a microservice template based on the [ABP Framework](https://docs.abp.io/) and use for reference [antosubash/AbpMicroservice](https://github.com/antosubash/AbpMicroservice),
+This project is a microservice template based on the [ABP Framework](https://docs.abp.io/) and reference form [antosubash/AbpMicroservice](https://github.com/antosubash/AbpMicroservice),
 to using dotnet new to create microservice project and microservice service project.
 
 ## Nuget Packages
