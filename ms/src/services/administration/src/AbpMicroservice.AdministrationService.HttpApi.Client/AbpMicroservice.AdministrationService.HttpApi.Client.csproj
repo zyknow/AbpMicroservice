@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="SharpAbp.Abp.AuditLogging.HttpApi.Client" Version="2.7.2" />
+        <PackageReference Include="SharpAbp.Abp.AuditLogging.HttpApi.Client" Version="$(SharpABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />

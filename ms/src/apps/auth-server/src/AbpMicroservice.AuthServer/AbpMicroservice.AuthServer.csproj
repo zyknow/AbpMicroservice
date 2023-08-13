@@ -30,7 +30,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="$(MicrosoftAspNetCorePackageVersion)" />
 		<PackageReference Include="Volo.Abp.Autofac" Version="$(ABPPackageVersion)" />
 		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="$(ABPPackageVersion)" />
 		<PackageReference Include="Volo.Abp.BackgroundJobs.RabbitMQ" Version="$(ABPPackageVersion)" />

@@ -11,11 +11,6 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
-    </ItemGroup>
-
-
-    <ItemGroup>
         <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(ABPPackageVersion)" />

@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="SharpAbp.Abp.AuditLogging.Application" Version="2.7.2" />
+        <PackageReference Include="SharpAbp.Abp.AuditLogging.Application" Version="$(SharpABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.AutoMapper" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="$(ABPPackageVersion)" />

@@ -12,6 +12,5 @@
         <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.EntityFrameworkCore\AbpMicroservice.Shared.EntityFrameworkCore.csproj" />
         <ProjectReference Include="..\AbpMicroservice.ProductService.Domain\AbpMicroservice.ProductService.Domain.csproj" />
         <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
     </ItemGroup>
 </Project>

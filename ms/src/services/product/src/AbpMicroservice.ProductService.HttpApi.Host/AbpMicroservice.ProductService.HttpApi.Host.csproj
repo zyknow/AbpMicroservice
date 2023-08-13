@@ -10,11 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
-    </ItemGroup>
-
-
-    <ItemGroup>
         <ProjectReference Include="..\..\..\..\shared\AbpMicroservice.Shared.Hosting.Microservices\AbpMicroservice.Shared.Hosting.Microservices.csproj" />
         <ProjectReference Include="..\AbpMicroservice.ProductService.Application\AbpMicroservice.ProductService.Application.csproj" />
         <ProjectReference Include="..\AbpMicroservice.ProductService.EntityFrameworkCore\AbpMicroservice.ProductService.EntityFrameworkCore.csproj" />

@@ -7,7 +7,7 @@
     <ItemGroup>
         <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     </ItemGroup>
 
     <ItemGroup>
