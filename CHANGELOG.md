@@ -1,3 +1,16 @@
+# [1.0.0-preview.5](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.4...v1.0.0-preview.5) (2023-08-13)
+
+
+### Bug Fixes
+
+* service template not files ([8834b8d](https://github.com/zyknow/AbpMicroservice/commit/8834b8d177e3d757df747a8d17556e109c1f6232))
+
+
+### Features
+
+* manager package version in common.props ([d4ac8f5](https://github.com/zyknow/AbpMicroservice/commit/d4ac8f5705abab83db98a2af7f338885972e0687))
+* merge template to one nuget package ([c8f4714](https://github.com/zyknow/AbpMicroservice/commit/c8f4714f501187b1d1d3102a0c74e443afa9b110))
+
 # [1.0.0-preview.4](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.3...v1.0.0-preview.4) (2023-08-08)
 
 
