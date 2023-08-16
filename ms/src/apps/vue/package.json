@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@microsoft/signalr": "^7.0.2",
-    "@quasar/extras": "^1.15.11",
+    "@quasar/extras": "^1.16.5",
     "@vueuse/core": "^10.1.2",
     "axios": "^1.3.3",
     "d": "^1.0.1",
@@ -26,7 +26,7 @@
     "oidc-client-ts": "^2.2.1",
     "pinia": "^2.0.30",
     "pinia-plugin-persistedstate": "^3.0.2",
-    "quasar": "^2.12.0",
+    "quasar": "^2.12.4",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
@@ -35,7 +35,7 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@intlify/vite-plugin-vue-i18n": "^7.0.0",
-    "@quasar/app-vite": "1.3.0",
+    "@quasar/app-vite": "1.4.1",
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.59.5",
