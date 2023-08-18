@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{3609CC9C-A
 		common.props = common.props
 		package.json = package.json
 		README.md = README.md
+		README.zh-CN.md = README.zh-CN.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{E8F4512F-A708-43A1-8D75-BC035C58AD83}"

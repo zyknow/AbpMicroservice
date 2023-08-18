@@ -4,16 +4,19 @@
 [![GitHub Stars](https://img.shields.io/github/stars/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/zyknow/AbpMicroservice.svg)](https://github.com/zyknow/AbpMicroservice/issues)
 
+English| [简体中文](./README.zh-CN.md)
+
 ## Introduction
 
-This project is a microservice template based on the [ABP Framework](https://docs.abp.io/) and reference form [antosubash/AbpMicroservice](https://github.com/antosubash/AbpMicroservice),
-to using dotnet new to create microservice project and microservice service project.
+This project is a microservice template based on the [ABP Framework](https://docs.abp.io/) and reference
+form [antosubash/AbpMicroservice](https://github.com/antosubash/AbpMicroservice),
+to using dotnet new to create microservice project and microservice service template project.
 
 ## Nuget Packages
 
-| Name                                     | Version                                                                                                                                                                                              | Download                                                                                                                                                                                              |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Zyknow.Abp.Microservice.Template         | [![Zyknow.Abp.Microservice.Template](https://img.shields.io/nuget/v/Zyknow.Abp.Microservice.Template.svg)](https://www.nuget.org/packages/Zyknow.Abp.Microservice.Template/)                         | [![Zyknow.Abp.Microservice.Template](https://img.shields.io/nuget/dt/Zyknow.Abp.Microservice.Template.svg)](https://www.nuget.org/packages/Zyknow.Abp.Microservice.Template/) |
+| Name                             | Version                                                                                                                                                                      | Download                                                                                                                                                                      |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Zyknow.Abp.Microservice.Template | [![Zyknow.Abp.Microservice.Template](https://img.shields.io/nuget/v/Zyknow.Abp.Microservice.Template.svg)](https://www.nuget.org/packages/Zyknow.Abp.Microservice.Template/) | [![Zyknow.Abp.Microservice.Template](https://img.shields.io/nuget/dt/Zyknow.Abp.Microservice.Template.svg)](https://www.nuget.org/packages/Zyknow.Abp.Microservice.Template/) |
 
 ## Features
 
@@ -28,13 +31,15 @@ to using dotnet new to create microservice project and microservice service proj
 - [x] `Minio` Distributed Storage
 - [x] `Tye` Support
 - [x] `Blazor Server` Web App
-  - [ ] Use [Masa](https://www.masastack.com/framework) Blazor UI
+    - [ ] Use [Masa](https://www.masastack.com/framework) Blazor UI
 - [x] `Vue3 Quasar` Web App
-  - [ ] Basic Pages
+    - [ ] Basic Pages
 - [ ] `Avalonia` Startup Template
 - [ ] `Maui` App
 
 ## Usage
+
+---
 
 ### Using Dotnet Create You Microservice Project
 
@@ -42,7 +47,7 @@ to using dotnet new to create microservice project and microservice service proj
   ```shell
   dotnet new install Zyknow.Abp.Microservice.Template
   ```
-  
+
 #### Create Microservice Project
 
 ```shell
@@ -55,10 +60,56 @@ dotnet new zabp-ms -n YourMicroserviceName
 dotnet new zabp-ms-s -n YourServiceName
 ```
 
+---
+
+### Run Microservice
+
+#### Run Docker Compose in `ms\src\etc\docker`
+
+##### select you need docker environment dependency
+
+* `dev_up.ps1` is lowest environment dependency
+* `up.ps1` is full environment dependency
+
+##### run docker compose on `powershell`
+
+```shell
+./dev_up.ps1
+```
+
+or
+
+```shell
+./up.ps1
+```
+
+##### install ssl certificate in `src\etc\dev-cert\localhost.pfx`
+
+you must install ssl certificate in you local machine,otherwise https will report an error
+
+or delete `localhost.pfx`,`run-tye.ps1` will create a new certificate
+
+##### build microservice project in `src`
+
+```shell
+dotnet build
+```
+
+##### run
+you also can use `-p` to change tye port,like `./run-tye.ps1 -p 8001`
+```shell
+./run-tye.ps1
+```
+
+or watch run
+
+```shell
+./run-tye.ps1 --watch
+```
+
 ### Thanks
 
-
-
+[Rider](https://www.jetbrains.com/zh-cn/rider/)
 
 ## Author
 
