@@ -32,7 +32,9 @@ to using dotnet new to create microservice project and microservice service proj
 - [x] `Vue3 Quasar` Web App
   - [ ] Basic Pages
 - [ ] `Avalonia` Startup Template
-- [ ] `Maui` App
+- [ ] `Maui` Startup App
+- [ ] `DockerFile`
+- [ ] `K8s` k8s Template
 
 ## Usage
 
