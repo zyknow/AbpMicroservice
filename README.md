@@ -59,7 +59,7 @@ dotnet new zabp-ms -n YourMicroserviceName
 #### Create New Service
 
 ```shell
-dotnet new zabp-ms-s -n YourServiceName
+dotnet new zabp-ms-s -n YourServiceProjectName --sn YourServiceName
 ```
 
 ---
