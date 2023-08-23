@@ -1,22 +1,9 @@
 using AbpMicroservice.IdentityService.EntityFrameworkCore;
-using AbpMicroservice.Shared.Hosting.AspNetCore;
 using AbpMicroservice.Shared.Hosting.Microservices;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Prometheus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AbpMicroservice.Shared.Definition;
 using Volo.Abp;
-using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Modularity;
-using AbpMicroservice.AdministrationService.EntityFrameworkCore;
-using AbpMicroservice.SaasService.EntityFrameworkCore;
 
 namespace AbpMicroservice.IdentityService;
 

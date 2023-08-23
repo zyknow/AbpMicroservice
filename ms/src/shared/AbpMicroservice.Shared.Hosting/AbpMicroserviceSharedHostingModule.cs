@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using AbpMicroservice.Shared.Definition;
+﻿using AbpMicroservice.Shared.Definition;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Autofac;

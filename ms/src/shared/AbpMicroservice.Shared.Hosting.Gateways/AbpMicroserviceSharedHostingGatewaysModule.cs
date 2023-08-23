@@ -1,7 +1,5 @@
 ﻿using AbpMicroservice.Shared.Hosting.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 

@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Volo.Abp;
-
-namespace AbpMicroservice.AdministrationService.EntityFrameworkCore;
+﻿namespace AbpMicroservice.AdministrationService.EntityFrameworkCore;
 
 public static class AdministrationDbContextModelCreatingExtensions
 {

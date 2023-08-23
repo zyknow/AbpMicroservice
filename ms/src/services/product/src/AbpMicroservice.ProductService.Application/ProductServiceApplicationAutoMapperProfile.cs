@@ -1,5 +1,4 @@
-﻿using AbpMicroservice.ProductService.Products;
-using AutoMapper;
+﻿using AutoMapper;
 
 namespace AbpMicroservice.ProductService;
 
@@ -10,8 +9,5 @@ public class ProductServiceApplicationAutoMapperProfile : Profile
         /* You can configure your AutoMapper mapping configuration here.
          * Alternatively, you can split your mapping configurations
          * into multiple profile classes for a better organization. */
-
-        CreateMap<Product, ProductDto>();
-        CreateMap<ProductDto, Product>();
     }
 }

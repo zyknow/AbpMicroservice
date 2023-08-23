@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
-using System.IO;
+﻿using Microsoft.EntityFrameworkCore.Design;
 using AbpMicroservice.Shared.EntityFrameworkCore;
 
 namespace AbpMicroservice.IdentityService.EntityFrameworkCore;

@@ -1,5 +1,4 @@
-﻿using AbpMicroservice.ProductService.Products;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -10,7 +9,6 @@ public class ProductServiceDbContext :
     AbpDbContext<ProductServiceDbContext>,
     IProductServiceDbContext
 {
-    public DbSet<Product> Products { get; set; }
 
     public ProductServiceDbContext(DbContextOptions<ProductServiceDbContext> options)
         : base(options)
@@ -22,8 +20,6 @@ public class ProductServiceDbContext :
         base.OnModelCreating(builder);
 
         /* Include modules to your migration db context */
-
-        builder.ConfigureProduct();
 
         /* Configure your own tables/entities inside here */
 

@@ -1,7 +1,4 @@
-﻿using AbpMicroservice.Shared.Definition;
-using Com.Ctrip.Framework.Apollo;
-using Com.Ctrip.Framework.Apollo.Enums;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace AbpMicroservice.Shared.ConfigurationCenter;

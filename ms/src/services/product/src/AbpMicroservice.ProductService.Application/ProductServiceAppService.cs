@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AbpMicroservice.ProductService.Localization;
+﻿using AbpMicroservice.ProductService.Localization;
 using Volo.Abp.Application.Services;
 
 namespace AbpMicroservice.ProductService;

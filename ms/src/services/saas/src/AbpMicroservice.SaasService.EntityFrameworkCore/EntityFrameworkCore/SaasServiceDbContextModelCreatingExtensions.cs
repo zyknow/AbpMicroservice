@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Volo.Abp;
-
-namespace AbpMicroservice.SaasService.EntityFrameworkCore;
+﻿namespace AbpMicroservice.SaasService.EntityFrameworkCore;
 
 public static class SaasServiceDbContextModelCreatingExtensions
 {

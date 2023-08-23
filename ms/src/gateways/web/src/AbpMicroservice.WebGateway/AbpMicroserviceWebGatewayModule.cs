@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Rewrite;
 using Volo.Abp;
 using Volo.Abp.Modularity;
-using Yarp.ReverseProxy.Configuration;
 
 namespace AbpMicroservice.WebGateway;
 

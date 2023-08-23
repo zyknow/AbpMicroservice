@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Medallion.Threading;
+﻿using Medallion.Threading;
 using Medallion.Threading.Redis;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,11 +9,9 @@ using AbpMicroservice.SaasService.EntityFrameworkCore;
 using AbpMicroservice.Shared.Definition;
 using AbpMicroservice.Shared.Hosting.AspNetCore;
 using AbpMicroservice.Shared.Hosting.AspNetCore.Helpers;
-using AbpMicroservice.Shared.Hosting.Microservices.DbMigrations;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
-using Volo.Abp;
 using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.BackgroundJobs.RabbitMQ;
@@ -22,8 +19,6 @@ using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
 using Volo.Abp.Modularity;
-using Volo.Abp.MultiTenancy;
-using Volo.Abp.AspNetCore;
 
 namespace AbpMicroservice.Shared.Hosting.Microservices;
 
