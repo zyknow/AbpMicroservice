@@ -1,3 +1,10 @@
+# [1.0.0-preview.10](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.9...v1.0.0-preview.10) (2023-08-24)
+
+
+### Bug Fixes
+
+* lost Blazor csrpoj Reference and module ([18616d1](https://github.com/zyknow/AbpMicroservice/commit/18616d160c710de7bfd89a45e0a1d70094288938))
+
 # [1.0.0-preview.9](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.8...v1.0.0-preview.9) (2023-08-24)
 
 
