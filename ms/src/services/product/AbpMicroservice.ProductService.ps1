@@ -27,12 +27,14 @@ function Convert-ToKebabCase {
 
 
 "------------------------------------------------------------------"
-$serviceKebabCaseName
+$serviceKebabCaseName = "librarian-assistant"
 $serviceName
-$slnFolderPath
+$slnFolderPath = "G:\Mj\MjLibrary"
 $slnPath
 $slnName
+$fullServiceName = "LibrarianAssistantService"
 "------------------------------------------------------------------"
+
 
 "##########################################检查路径##############################################"
 
@@ -593,4 +595,39 @@ $content = @($newUsing) + $content
 # 将修改后的内容写回文件
 Set-Content -Path $blazorModuleCs.FullName -Value $content
 
+"##########################add Routes and Clusters in gateways yarp.json #################################"
+# 找到所有匹配的 yarp.json 文件
+$yarpJsonFiles = Get-ChildItem -Path "$slnFolderPath\gateways\*\src\*Gateway\yarp.json" -Recurse
 
+foreach ($yarpJsonFile in $yarpJsonFiles) {
+    # 读取 JSON 文件内容
+    $jsonContent = Get-Content -Path $yarpJsonFile.FullName | ConvertFrom-Json
+
+    # 创建 Routes 对象
+    $routesObject = @{
+        "ClusterId" = $fullServiceName
+        "Match"     = @{
+            "Path" = "/api/$serviceKebabCaseName/{*any}"
+        }
+    }
+
+    # 创建 Clusters 对象
+    $clustersObject = @{
+        "Destinations" = @{
+            "destination1" = @{
+                "Address" = $urlToAdd
+            }
+        }
+    }
+
+    # 向 Yarp/Routes 节点下添加对象
+    $jsonContent.Yarp.Routes | Add-Member -Name $serviceKebabCaseName -Value $routesObject -MemberType NoteProperty -Force
+
+    # 向 Yarp/Clusters 节点下添加对象
+    $jsonContent.Yarp.Clusters | Add-Member -Name $fullServiceName -Value $clustersObject -MemberType NoteProperty -Force
+
+    # 将修改后的内容写回文件
+    $jsonContent | ConvertTo-Json -Depth 10 | Set-Content -Path $yarpJsonFile.FullName
+}
+
+Write-Host "所有 yarp.json 文件已成功修改。"
