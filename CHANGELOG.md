@@ -1,3 +1,11 @@
+# [1.0.0-preview.8](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.7...v1.0.0-preview.8) (2023-08-24)
+
+
+### Features
+
+* add all language support ([2812226](https://github.com/zyknow/AbpMicroservice/commit/28122263abba8945f6a9e1db31dbafaa446b67eb))
+* add service integration ps1 script ([08d5525](https://github.com/zyknow/AbpMicroservice/commit/08d55253a7c218098c0c804f6679603982541fbe))
+
 # [1.0.0-preview.7](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.6...v1.0.0-preview.7) (2023-08-23)
 
 
