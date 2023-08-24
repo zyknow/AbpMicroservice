@@ -56,11 +56,90 @@ to using dotnet new to create microservice project and microservice service temp
 dotnet new zabp-ms -n YourMicroserviceName
 ```
 
-#### Create New Service
+#### Create New Service And Use
 
-```shell
-dotnet new zabp-ms-s -n YourServiceProjectName --sn YourServiceName
+* you better run the command in services folder
+  ```shell
+  dotnet new zabp-ms-s -n YourServiceProjectName
+  ```
+
+* copy `YourServiceProjectName\YourServiceProjectName.ps1` to services folder and run.
+  that will fix the service folder path,and add service to `tye.yaml`,add to root sln,you can see all code in
+  YourServiceProjectName\YourServiceProjectName.ps1
+
+  > :warning: ** please save you all data or to submit git。
+  ```shell
+    ./YourServiceProjectName.ps1
+    ```
+
+* after run,you can see like this,and you can delete this script.
+
+```csharp
+(base) PS G:\Mj\MijinLibrary\services> .\MijinLibrary.BookInfoService.ps1
+------------------------------------------------------------------
+------------------------------------------------------------------
+##########################################检查路径##############################################
+检查完成
+##########################################修改文件夹名##############################################
+文件夹已重命名为 book-info。
+修改完成
+####################################修复替换项目文件名称以及文件和文件夹####################################
+ProjectName: BookInfo
+slnName: MijinLibrary
+替换完成
+####################################添加到Root解决方案####################################
+找到解决方案文件: G:\Mj\MijinLibrary\MijinLibrary.sln
+找到解决方案文件: G:\Mj\MijinLibrary\MijinLibrary.sln
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.Application\MijinLibrary.BookInfoService.Application.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.Application\MijinLibrary.BookInfoService.Application.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.Application.Contracts\MijinLibrary.BookInfoService.Application.Contracts.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.Application.Contracts\MijinLibrary.BookInfoService.Application.Contracts.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.Domain\MijinLibrary.BookInfoService.Domain.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.Domain\MijinLibrary.BookInfoService.Domain.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.Domain.Shared\MijinLibrary.BookInfoService.Domain.Shared.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.Domain.Shared\MijinLibrary.BookInfoService.Domain.Shared.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.EntityFrameworkCore\MijinLibrary.BookInfoService.EntityFrameworkCore.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.EntityFrameworkCore\MijinLibrary.BookInfoService.EntityFrameworkCore.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.HttpApi\MijinLibrary.BookInfoService.HttpApi.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.HttpApi\MijinLibrary.BookInfoService.HttpApi.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Client\MijinLibrary.BookInfoService.HttpApi.Client.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Client\MijinLibrary.BookInfoService.HttpApi.Client.csproj”添加到解决方案中。
+正在添加项目: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Host\MijinLibrary.BookInfoService.HttpApi.Host.csproj
+已将项目“services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Host\MijinLibrary.BookInfoService.HttpApi.Host.csproj”添加到解决方案中。
+操作完成
+###############################修改端口号/添加端口号到网关和Auth Service####################################
+请输入该服务的端口号: 51000
+已更新文件: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Host\appsettings.json
+已更新文件: G:\Mj\MijinLibrary\services\book-info\src\MijinLibrary.BookInfoService.HttpApi.Host\Properties\launchSettings.json
+开始添加端口号到网关和Auth Service
+指定的URL已存在于文件: G:\Mj\MijinLibrary\gateways\internal\src\MijinLibrary.InternalGateway\bin\Debug\net7.0\appsettings.json.FullName 中。
+已更新文件: G:\Mj\MijinLibrary\gateways\internal\src\MijinLibrary.InternalGateway\appsettings.json.FullName
+指定的URL已存在于文件: G:\Mj\MijinLibrary\gateways\web\src\MijinLibrary.WebGateway\bin\Debug\net7.0\appsettings.json.FullName 中。
+已更新文件: G:\Mj\MijinLibrary\gateways\web\src\MijinLibrary.WebGateway\appsettings.json.FullName
+指定的URL已存在于文件: G:\Mj\MijinLibrary\apps\auth-server\src\MijinLibrary.AuthServer\bin\Debug\net7.0\appsettings.json.FullName 中。
+已更新文件: G:\Mj\MijinLibrary\apps\auth-server\src\MijinLibrary.AuthServer\appsettings.json.FullName
+操作完成
+###############################添加到tye和prometheus.yml####################################
+已添加内容到 G:\Mj\MijinLibrary\tye.yaml。
+修改prometheus.yml
+已添加内容到 G:\Mj\MijinLibrary\etc\prometheus\prometheus.yml。
+###############################更新DbMigrator Appsettings.json####################################
+指定的ConnectionStrings已存在于 G:\Mj\MijinLibrary\shared\MijinLibrary.DbMigrator\bin\Debug\net7.0\appsettings.json 中。
+指定的OpenIddict/Resources已存在于 G:\Mj\MijinLibrary\shared\MijinLibrary.DbMigrator\bin\Debug\net7.0\appsettings.json 中。
+已添加ConnectionStrings内容到 G:\Mj\MijinLibrary\shared\MijinLibrary.DbMigrator\appsettings.json。
+已添加OpenIddict/Resources内容到 G:\Mj\MijinLibrary\shared\MijinLibrary.DbMigrator\appsettings.json。
+操作完成
+###############################添加到AppServiceConsts####################################
+已添加常量内容到 G:\Mj\MijinLibrary\shared\MijinLibrary.Shared.Definition\AppServiceConsts.cs。
+已添加字典内容到 G:\Mj\MijinLibrary\shared\MijinLibrary.Shared.Definition\AppServiceConsts.cs。
+操作完成
 ```
+
+* build you sln and run tye
+  ```shell
+  dotnet build
+  ./run-tye.ps1
+  ```
 
 ---
 
@@ -98,7 +177,9 @@ dotnet build
 ```
 
 ##### run
+
 you also can use `-p` to change tye port,like `./run-tye.ps1 -p 8001`
+
 ```shell
 ./run-tye.ps1
 ```
