@@ -1,3 +1,10 @@
+# [1.0.0-preview.9](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.8...v1.0.0-preview.9) (2023-08-24)
+
+
+### Bug Fixes
+
+* fix no add DbMigratorModule,DbMigrationServiceDbMigrator csrpoj Reference ([1b48f92](https://github.com/zyknow/AbpMicroservice/commit/1b48f92a5a297951fe92b1e996ce4eb448a19071))
+
 # [1.0.0-preview.8](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.7...v1.0.0-preview.8) (2023-08-24)
 
 
