@@ -1,3 +1,10 @@
+# [1.0.0-preview.11](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.10...v1.0.0-preview.11) (2023-08-24)
+
+
+### Bug Fixes
+
+* lost edit yarp.json ([aa78716](https://github.com/zyknow/AbpMicroservice/commit/aa78716243b7706cee067d2b7589d9f4da24f3ee))
+
 # [1.0.0-preview.10](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.9...v1.0.0-preview.10) (2023-08-24)
 
 
