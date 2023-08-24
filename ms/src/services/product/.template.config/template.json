@@ -11,14 +11,5 @@
     "type": "solution"
   },
   "shortName": "zabp-ms-s",
-  "preferNameDirectory": true,
-  "symbols": {
-    "ServiceName": {
-      "type": "parameter",
-      "dataType": "string",
-      "replaces": "Product",
-      "description": "Custom product name",
-      "shortName": "sn"
-    }
-  }
+  "preferNameDirectory": true
 }
