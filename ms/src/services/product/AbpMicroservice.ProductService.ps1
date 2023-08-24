@@ -34,7 +34,6 @@ $slnPath
 $slnName
 "------------------------------------------------------------------"
 
-
 "##########################################检查路径##############################################"
 
 
@@ -63,9 +62,6 @@ Write-Host "请输入 $scriptName 服务的端口号"
 Write-Host "Enter the port number for the $scriptName service"
 # 提示用户输入端口号
 $portNumber = Read-Host "Port"
-
-
-exit
 
 "##########################################修改文件夹名##############################################"
 
@@ -541,5 +537,60 @@ Get-ChildItem -Path $appServiceConstsPath -Recurse | ForEach-Object {
 }
 
 Write-Host "操作完成"
+
+
+
+"###############################添加Blazor csrpoj Reference and module ####################################"
+
+# 获取 Blazor 项目的路径
+$blazorCsproj = Get-ChildItem -Path "$slnFolderPath\apps\blazor\src\*.Blazor\*.csproj" | Select-Object -First 1
+
+# 获取 HttpApi.Host 项目的路径
+$hostCsproj = Get-ChildItem -Path ".\src\*.HttpApi.Client\*.csproj" | Select-Object -First 1
+
+# 检查是否找到了项目文件
+if ($null -eq $blazorCsproj -or $null -eq $hostCsproj) {
+    Write-Host "未找到项目文件，请检查路径。"
+    exit 1
+}
+
+# 添加引用
+& dotnet add $blazorCsproj.FullName reference $hostCsproj.FullName
+
+
+
+
+# 找到 BlazorModule.cs 文件的路径
+$blazorModuleCs = Get-ChildItem -Path "$slnFolderPath\apps\blazor\src\*.Blazor\*BlazorModule.cs" | Select-Object -First 1
+
+# 检查是否找到了文件
+if ($null -eq $blazorModuleCs) {
+    Write-Host "未找到BlazorModule.cs文件，请检查路径。"
+    exit 1
+}
+
+# 读取文件内容
+$content = Get-Content -Path $blazorModuleCs.FullName
+
+# 找到DependsOn节点并添加新的依赖
+$dependsOnLine = $content | Select-String -Pattern 'typeof\(' | Select-Object -First 1
+$newDepend = "typeof("+$fullServiceName+"HttpApiClientModule)," + "`r`n"
+$updatedDependsOnLine = $dependsOnLine -replace 'typeof\(', "$newDepend typeof("
+$content[$content.IndexOf($dependsOnLine)] = $updatedDependsOnLine
+
+# 将修改后的内容写回文件
+Set-Content -Path $blazorModuleCs.FullName -Value $content
+
+
+
+# 读取文件内容
+$content = Get-Content -Path $blazorModuleCs.FullName
+
+# 添加新的命名空间到文件最顶部
+$newUsing = "using $slnName.$fullServiceName;"
+$content = @($newUsing) + $content
+
+# 将修改后的内容写回文件
+Set-Content -Path $blazorModuleCs.FullName -Value $content
 
 
