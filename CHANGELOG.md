@@ -1,3 +1,11 @@
+# [1.0.0-preview.7](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.6...v1.0.0-preview.7) (2023-08-23)
+
+
+### Features
+
+* update service template ([d66414e](https://github.com/zyknow/AbpMicroservice/commit/d66414ed8be5c54860c61705811a5b7e3718b049))
+* update vue quasar version ([ad97697](https://github.com/zyknow/AbpMicroservice/commit/ad97697dd3d3b137b42ac8abd25363c11d7e7686))
+
 # [1.0.0-preview.6](https://github.com/zyknow/AbpMicroservice/compare/v1.0.0-preview.5...v1.0.0-preview.6) (2023-08-13)
 
 
