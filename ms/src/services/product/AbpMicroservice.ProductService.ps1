@@ -35,9 +35,6 @@ $slnName
 "------------------------------------------------------------------"
 
 
-
-
-
 "##########################################检查路径##############################################"
 
 
@@ -61,6 +58,14 @@ if ($slnFiles.Count -gt 0) {
 }
 
 Write-Host "检查完成"
+
+Write-Host "请输入 $scriptName 服务的端口号"
+Write-Host "Enter the port number for the $scriptName service"
+# 提示用户输入端口号
+$portNumber = Read-Host "Port"
+
+
+exit
 
 "##########################################修改文件夹名##############################################"
 
@@ -168,8 +173,7 @@ Write-Host "操作完成"
 
 "###############################修改端口号/添加端口号到网关和Auth Service####################################"
 $slnFolderPath = [System.IO.Path]::GetDirectoryName($slnPath)
-# 提示用户输入端口号
-$portNumber = Read-Host "请输入该服务的端口号"
+
 
 # 验证端口号是否有效
 if ($portNumber -notmatch "^\d{1,5}$" -or [int]$portNumber -lt 1 -or [int]$portNumber -gt 65535) {
@@ -251,10 +255,16 @@ if ($null -eq $projectPath) {
     exit
 }
 
+$index = $projectPath.FullName.IndexOf("services")
+$projectFullPath = $projectPath.FullName
+$projectPath = $projectFullPath.Substring($index)
+
 # 定义tye.yaml的路径
 $tyeYamlPath = Join-Path $slnFolderPath "tye.yaml"
 
 $tpItemName = $serviceKebabCaseName + "-service"
+
+
 
 # 定义要添加的内容
 $contentToAdd = @"
@@ -322,8 +332,9 @@ if (Test-Path -Path $prometheusYmlPath) {
 }
 
 
-"###############################更新DbMigrator Appsettings.json####################################"
+"###############################更新DbMigrator####################################"
 
+"------------------Appsettings----------------------"
 # 定义appsettings.json的路径
 $appsettingsJsonPath = "$slnFolderPath\shared\*DbMigrator\appsettings.json"
 
@@ -359,6 +370,125 @@ Get-ChildItem -Path $appsettingsJsonPath -Recurse | ForEach-Object {
 }
 
 Write-Host "操作完成"
+
+"------------------DbMigrationService----------------------"
+$fullServiceName = $serviceName + "Service"
+
+$fullServiceNameDbContext = $fullServiceName + "DbContext"
+
+
+# 定义要插入的内容
+$insertContent = "await MigrateDatabaseAsync<$fullServiceNameDbContext>(cancellationToken);"
+
+# 获取确切的文件路径
+$dbMigrationServiceFile = Get-ChildItem -Path "$slnFolderPath\shared\*.DbMigrator" -Filter "*DbMigrationService.cs" -Recurse | Select-Object -First 1
+
+# 检查文件是否存在
+if ($null -eq $dbMigrationServiceFile) {
+    Write-Host "未找到文件：*DbMigrationService.cs"
+    exit
+}
+
+$insertNamespace = "using $slnName.$fullServiceName.EntityFrameworkCore;"
+# 读取文件内容
+$content = Get-Content -Path $dbMigrationServiceFile -Raw
+
+# 检查文件内容是否已包含该命名空间
+if ($content -notmatch [regex]::Escape($insertNamespace)) {
+    # 在文件的开头插入新的命名空间
+    $content = $insertNamespace + "`r`n" + $content
+    Set-Content -Path $dbMigrationServiceFile.FullName -Value $content
+    Write-Host "已在文件 $dbMigrationServiceFile 中插入命名空间。"
+} else {
+    Write-Host "文件 $dbMigrationServiceFile 已包含命名空间。"
+}
+
+
+# 读取文件内容
+$content = Get-Content -Path $dbMigrationServiceFile.FullName
+
+# 查找 await uow.CompleteAsync(cancellationToken); 的位置
+$awaitUowCompleteAsyncIndex = $content | Select-String -Pattern 'await uow.CompleteAsync\(cancellationToken\);' | Select-Object LineNumber
+
+# 如果找到了位置，插入新代码
+if ($null -ne $awaitUowCompleteAsyncIndex) {
+    $insertionLine = $awaitUowCompleteAsyncIndex.LineNumber - 1
+    $content = $content[0..($insertionLine - 1)] + "await MigrateDatabaseAsync<$fullServiceNameDbContext>(cancellationToken);" + $content[$insertionLine..$content.Length]
+    $content | Set-Content -Path $dbMigrationServiceFile.FullName
+    Write-Host "已在文件 $dbMigrationServiceFile 中插入代码。"
+} else {
+    Write-Host "在文件 $dbMigrationServiceFile 中未找到插入点。"
+}
+
+
+"------------------DbMigratorModule----------------------"
+
+
+
+
+# 获取文件路径
+$dbMigratorModuleFile = Get-ChildItem -Path "$slnFolderPath\shared\*.DbMigrator" -Filter "*DbMigratorModule.cs" -Recurse | Select-Object -First 1
+
+
+$insertNamespace = "using $slnName.$fullServiceName.EntityFrameworkCore;" + "`r`n" + "using $slnName.$fullServiceName;"
+
+# 读取文件内容
+$content = Get-Content -Path $dbMigratorModuleFile -Raw
+
+# 检查文件内容是否已包含该命名空间
+if ($content -notmatch [regex]::Escape($insertNamespace)) {
+    # 在文件的开头插入新的命名空间
+    $content = $insertNamespace + "`r`n" + $content
+    Set-Content -Path $dbMigratorModuleFile.FullName -Value $content
+    Write-Host "已在文件 $dbMigratorModuleFile 中插入命名空间。"
+} else {
+    Write-Host "文件 $dbMigratorModuleFile 已包含命名空间。"
+}
+
+
+# 读取文件内容
+$content = Get-Content -Path $dbMigratorModuleFile.FullName
+
+
+# 找到 [DependsOn( 行的索引
+$dependsOnIndex = $content | Select-String -Pattern '\[DependsOn\(' | Select-Object LineNumber | ForEach-Object { $_.LineNumber - 1 }
+
+# 构建新的内容
+$newContent = "    typeof($fullServiceName" + "EntityFrameworkCoreModule)," + "`r`n    typeof($fullServiceName" + "ApplicationContractsModule),"
+
+# 将新内容插入到 DependsOn 属性的顶部
+$content = $content[0..$dependsOnIndex] + $newContent + $content[($dependsOnIndex + 1)..($content.Length - 1)]
+
+# 写入文件
+$content | Set-Content -Path $dbMigratorModuleFile.FullName
+
+Write-Host "已在文件 $dbMigratorModuleFile 中插入代码。"
+
+
+
+
+"------------------DbMigrator csrpoj Reference ----------------------"
+
+# 获取当前脚本所在的路径
+$currentPath = Get-Location
+
+# 获取目标.csproj文件
+$dbMigratorCsprojFile = Get-ChildItem -Path "$slnFolderPath\shared\*.DbMigrator" -Filter "*.csproj" -Recurse | Select-Object -First 1
+
+# 获取需要添加引用的.csproj文件
+$applicationContractsCsprojFiles = Get-ChildItem -Path "$currentPath\src\*Application.Contracts" -Filter "*.csproj" -Recurse
+$entityFrameworkCoreCsprojFiles = Get-ChildItem -Path "$currentPath\src\*EntityFrameworkCore" -Filter "*.csproj" -Recurse
+
+# 将找到的.csproj文件添加为引用
+$allCsprojFiles = @($applicationContractsCsprojFiles; $entityFrameworkCoreCsprojFiles)
+foreach ($csprojFile in $allCsprojFiles) {
+    Write-Host "正在添加引用: $($csprojFile) 到 $($dbMigratorCsprojFile)"
+    dotnet add $dbMigratorCsprojFile.FullName reference $csprojFile.FullName
+}
+
+Write-Host "引用添加完成。"
+
+
 
 "###############################添加到AppServiceConsts####################################"
 # 定义AppServiceConsts.cs的路径
