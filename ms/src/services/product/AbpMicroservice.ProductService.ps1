@@ -130,6 +130,14 @@ Get-ChildItem -Recurse | Where-Object { $_.FullName -notmatch "\\bin\\" -and $_.
     (Get-Content $_.FullName) | ForEach-Object { $_ -replace "Product", $projectName -replace "AbpMicroservice", $slnName } | Set-Content $_.FullName
 }
 
+# 替换文件名
+Get-ChildItem -Recurse | Where-Object { !$_.PSIsContainer } | ForEach-Object {
+    $newName = $_.Name -replace "Product", $projectName -replace "AbpMicroservice", $slnName
+    if ($newName -ne $_.Name) {
+        Rename-Item -Path $_.FullName -NewName $newName
+    }
+}
+
 Write-Host "替换完成"
 
 "####################################添加到Root解决方案####################################"
