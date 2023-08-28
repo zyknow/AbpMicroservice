@@ -40,23 +40,23 @@
                                         <div class="me-3 p-2">
                                             <i class="fa fa-user d-block" style="font-size: 10em; color: #12b900"></i>
                                         </div>
-                                        <div class="p2">
-                                            @if (CurrentUser.IsAuthenticated)
-                                            {
-                                                <span class="fs-16">
-                                                    @L["Welcome"] <span class="fw-7">@CurrentUser.UserName</span>
-                                                </span>
-                                                <span class="fs-14 d-block text-dark-800 opacity-75 mb-1">@CurrentUser.Email</span>
-                                                <div class="d-grid gap-2">
-                                                    <a abp-button="Outline_Primary" asp-controller="Manage" asp-action="Index" asp-area="Account">@L["MyAccount"]</a>
-                                                    <a abp-button="Primary" asp-controller="Logout" asp-action="Index" asp-area="Account">@L["Logout"]</a>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <a abp-button="Primary" asp-controller="Login" asp-action="Index" asp-area="Account">@L["Login"]</a>
-                                            }
-                                        </div>
+                                        @* <div class="p2"> *@
+                                        @*     @if (CurrentUser.IsAuthenticated) *@
+                                        @*     { *@
+                                        @*         <span class="fs-16"> *@
+                                        @*             @L["Welcome"] <span class="fw-7">@CurrentUser.UserName</span> *@
+                                        @*         </span> *@
+                                        @*         <span class="fs-14 d-block text-dark-800 opacity-75 mb-1">@CurrentUser.Email</span> *@
+                                        @*         <div class="d-grid gap-2"> *@
+                                        @*             <a abp-button="Outline_Primary" asp-controller="Manage" asp-action="Index" asp-area="Account">@L["MyAccount"]</a> *@
+                                        @*             <a abp-button="Primary" asp-controller="Logout" asp-action="Index" asp-area="Account">@L["Logout"]</a> *@
+                                        @*         </div> *@
+                                        @*     } *@
+                                        @*     else *@
+                                        @*     { *@
+                                        @*         <a abp-button="Primary" asp-controller="Login" asp-action="Index" asp-area="Account">@L["Login"]</a> *@
+                                        @*     } *@
+                                        @* </div> *@
 
                                     </div>
                                 </abp-column>
